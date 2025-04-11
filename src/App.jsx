@@ -13,38 +13,46 @@ function App() {
       <a href="/" className="hover:text-pink-700">
         Poetic Sceneries
       </a>
-      <div className="text-gray-600  text-2xl  font-primary grid grid-cols-7  ">
+      <div className="text-gray-600 text-2xl font-primary grid grid-cols-7">
         <div>
-          <div className="col-span-1   md:flex md:justify-end">
-            <aside className="text-right">
-              <div className="flex justify-between items-center">
-                <div
-                  className="px-1 ml-0 cursor-pointer relative z-40 "
-                  onClick={toggleMenu}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <ul
-                className={`text-sm mt-6 ${
-                  menuOpen
-                    ? "block transform transition-all duration-300 ease-in-out "
-                    : "hidden"
-                } `}
+          <div className="col-span-1 md:flex md:justify-end">
+            {/* Hamburger Menu Button */}
+            <div className="flex justify-between items-center">
+              <div
+                className="px-1 ml-0 cursor-pointer relative z-40"
+                onClick={toggleMenu}
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Sidebar Drawer */}
+            <div
+              className={`fixed inset-0 z-30 bg-gray-50 bg-opacity-100 transition-opacity duration-300 ${
+                menuOpen ? "opacity-50" : "opacity-0 pointer-events-none"
+              }`}
+              onClick={toggleMenu}
+            ></div>
+
+            <aside
+              className={`fixed top-0 left-0 z-30 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+                menuOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
+              <ul className="text-sm mt-16 p-4">
                 <li className="text-gray-700 font-bold py-1">
                   <a
                     href="#"
@@ -115,7 +123,7 @@ function App() {
             </aside>
           </div>
         </div>
-        {/* end of navbar */}
+        {/* Rest of your content remains the same */}
         <div className="col-span-6 px-4">
           <h3 className="font-semibold text-sm uppercase text-green-500 sm:text-red-500 lg:text-blue-500 text-center ">
             A postcard
@@ -257,6 +265,7 @@ function App() {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
